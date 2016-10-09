@@ -155,7 +155,7 @@
                 <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">
                 <img src="../images/profile.JPG" id="profile">
                 </a>
-                <p class="text-muted"><strong><a href="https://www.linkedin.com/pub/raul-matos/116/831/538">Raul G. Matos | View my LinkedIn profile</a></strong><br>
+                <p class="text-muted"><strong>Raul G. Matos | <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">View my LinkedIn profile</a> | <a href="https://github.com/RaulGMatos">View my GitHub profile</a></strong><br>
                     <i><small>Department of Computer Information Systems Graduate</small></i><br>
                     <i><small>Buffalo State College</small></i><br>
                     <i><small>1300 Elmwood Avenue</small></i><br>

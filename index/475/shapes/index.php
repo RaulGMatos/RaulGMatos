@@ -429,8 +429,11 @@
         
         <footer class="footer">
             <div class="container">
-                <p class="text-muted"><strong>Raul G. Matos | Department of Computer Information Systems Graduate</strong><br>
-                    <i><small>Technology Building, Room 202</small></i><br>
+                <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">
+                <img src="../../images/profile.JPG" id="profile">
+                </a>
+                <p class="text-muted"><strong>Raul G. Matos | <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">View my LinkedIn profile</a> | <a href="https://github.com/RaulGMatos">View my GitHub profile</a></strong><br>
+                    <i><small>Department of Computer Information Systems Graduate</small></i><br>
                     <i><small>Buffalo State College</small></i><br>
                     <i><small>1300 Elmwood Avenue</small></i><br>
                     <i><small>Buffalo, New York 14222</small></i>
