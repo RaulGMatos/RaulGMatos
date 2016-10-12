@@ -14,7 +14,7 @@
         
         <link rel="icon" href="../../images/programming.ico">
         
-        <title>Exercise 1 Code</title>
+        <title>Exercise 7 Code</title>
         
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         
@@ -81,31 +81,35 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Exercise 1 <small>Code</small></h1>
+                <h1>Exercise 7 <small>Code</small></h1>
             </div>
-            <p class="lead">Write a program and ask the user to enter a number. The number should be between 1 to 10. If the user enters a valid number, display "Valid" on the console. Otherwise, display "Invalid". (This logic is used a lot in applications where values entered into input boxes need to be validated.)</p>
+            <p class="lead">Write a program and ask the user to enter a number. Compute the factorial of the number and print it on the console. For example, if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 and display it as 5! = 120.</p>
             <br>
             <p>Below is the code used to create the program:</p>
             <pre>
 using System;
 
-namespace Exercise01
+namespace Exercise_07
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Input a number between 1 and 10:  ");
-            var userInput = Convert.ToInt32(Console.ReadLine());
 
-            if (userInput &gt= 1 && userInput &lt;= 10)
+            Console.Write("Please enter a number:  ");
+
+            var userInput = Convert.ToInt32(Console.ReadLine());
+            var factorial = userInput;
+
+            for (var i = userInput -1; i &gt 0; i--)
             {
-                Console.WriteLine("Valid");
+                factorial *= i;
             }
-            else
-            {
-                Console.WriteLine("Invalid");
-            }
+
+            Console.WriteLine(userInput + "! = " + factorial);
+
+            Console.WriteLine("Press any key to continue...");
+            Console.Read();
         }
     }
 }

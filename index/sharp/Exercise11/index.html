@@ -14,7 +14,7 @@
         
         <link rel="icon" href="../../images/programming.ico">
         
-        <title>Exercise 1 Code</title>
+        <title>Exercise 11 Code</title>
         
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         
@@ -81,31 +81,40 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Exercise 1 <small>Code</small></h1>
+                <h1>Exercise 11 <small>Code</small></h1>
             </div>
-            <p class="lead">Write a program and ask the user to enter a number. The number should be between 1 to 10. If the user enters a valid number, display "Valid" on the console. Otherwise, display "Invalid". (This logic is used a lot in applications where values entered into input boxes need to be validated.)</p>
+            <p class="lead">Write a program and ask the user to enter their name. Use an array to reverse the name and then store the result in a new string. Display the reversed name on the console.</p>
             <br>
             <p>Below is the code used to create the program:</p>
             <pre>
 using System;
+using System.Collections.Generic;
 
-namespace Exercise01
+namespace Exercise_11
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Input a number between 1 and 10:  ");
-            var userInput = Convert.ToInt32(Console.ReadLine());
 
-            if (userInput &gt= 1 && userInput &lt;= 10)
+            var userInput = " ";
+
+            Console.Write("Please enter your name:  ");
+            userInput = Console.ReadLine();
+
+            var letters = userInput.ToCharArray();
+
+            Array.Reverse(letters);
+
+            foreach (var letter in letters)
             {
-                Console.WriteLine("Valid");
+                Console.Write(letter);
             }
-            else
-            {
-                Console.WriteLine("Invalid");
-            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Press any key to continue...");
+            Console.Read();
         }
     }
 }

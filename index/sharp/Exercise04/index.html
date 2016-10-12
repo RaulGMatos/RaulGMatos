@@ -14,7 +14,7 @@
         
         <link rel="icon" href="../../images/programming.ico">
         
-        <title>Exercise 1 Code</title>
+        <title>Exercise 4 Code</title>
         
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         
@@ -81,31 +81,44 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Exercise 1 <small>Code</small></h1>
+                <h1>Exercise 4 <small>Code</small></h1>
             </div>
-            <p class="lead">Write a program and ask the user to enter a number. The number should be between 1 to 10. If the user enters a valid number, display "Valid" on the console. Otherwise, display "Invalid". (This logic is used a lot in applications where values entered into input boxes need to be validated.)</p>
+            <p class="lead">Your job is to write a program for a speed camera. For simplicity, ignore the details such as camera, sensors, etc and focus purely on the logic. Write a program that asks the user to enter the speed limit. Once set, the program asks for the speed of a car. If the user enters a value less than the speed limit, program should display Ok on the console. If the value is above the speed limit, the program should calculate the number of demerit points. For every 5km/hr above the speed limit, 1 demerit points should be incurred and displayed on the console. If the number of demerit points is above 12, the program should display License Suspended.</p>
             <br>
             <p>Below is the code used to create the program:</p>
             <pre>
 using System;
 
-namespace Exercise01
+namespace Exercise_04
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Input a number between 1 and 10:  ");
-            var userInput = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please enter the speed limit:  ");
+            var speedLimit = Convert.ToInt32(Console.ReadLine());
 
-            if (userInput &gt= 1 && userInput &lt;= 10)
+            Console.Write("Please enter the speed of a car:  ");
+            var speedCar = Convert.ToInt32(Console.ReadLine());
+
+            if (speedCar &lt;= speedLimit)
             {
-                Console.WriteLine("Valid");
+                Console.WriteLine("OK");
             }
             else
             {
-                Console.WriteLine("Invalid");
+                const int kmPerDemerit = 5;
+
+                var demerits = (speedCar - speedLimit) / kmPerDemerit;
+
+                if (demerits &gt 12)
+                    Console.WriteLine("License Suspended");
+                else
+                    Console.WriteLine("Demerit points: " + demerits);
             }
+
+            Console.WriteLine("Press any key to continue...");
+            Console.Read();
         }
     }
 }

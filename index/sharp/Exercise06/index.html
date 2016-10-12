@@ -14,7 +14,7 @@
         
         <link rel="icon" href="../../images/programming.ico">
         
-        <title>Exercise 1 Code</title>
+        <title>Exercise 6 Code</title>
         
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         
@@ -81,31 +81,44 @@
         <!-- Begin page content -->
         <div class="container">
             <div class="page-header">
-                <h1>Exercise 1 <small>Code</small></h1>
+                <h1>Exercise 6 <small>Code</small></h1>
             </div>
-            <p class="lead">Write a program and ask the user to enter a number. The number should be between 1 to 10. If the user enters a valid number, display "Valid" on the console. Otherwise, display "Invalid". (This logic is used a lot in applications where values entered into input boxes need to be validated.)</p>
+            <p class="lead">Write a program and continuously ask the user to enter a number or "ok" to exit. Calculate the sum of all the previously entered numbers and display it on the console.</p>
             <br>
             <p>Below is the code used to create the program:</p>
             <pre>
 using System;
 
-namespace Exercise01
+namespace Exercise_06
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Input a number between 1 and 10:  ");
-            var userInput = Convert.ToInt32(Console.ReadLine());
 
-            if (userInput &gt= 1 && userInput &lt;= 10)
+            var flag = false;
+            var userInput = "";
+            var sum = 0;
+
+            while (flag == false)
             {
-                Console.WriteLine("Valid");
+                Console.Write("Enter a number or OK to exit:  ");
+
+                userInput = Console.ReadLine();
+
+                if (userInput == "ok" || userInput == "OK" || userInput == "Ok")
+                {
+                    flag = true;
+                }
+                else
+                {
+                    sum += Convert.ToInt32(userInput);
+                    Console.WriteLine("The sum of the numbers entered is:  " + sum + "\n");
+                }
             }
-            else
-            {
-                Console.WriteLine("Invalid");
-            }
+
+            Console.WriteLine("Press any key to continue...");
+            Console.Read();
         }
     }
 }
