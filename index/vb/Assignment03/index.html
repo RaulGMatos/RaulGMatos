@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+        <meta name="description" content="The Department of Computer Information Systems at Buffalo State College provides a four year undergraduate degree program in information technology, systems administration, network administration, internet programming, databse programming, and project management."/>
+        
+        <meta name="keywords" content="buffalo state college, computer information systems, cis, buffalo, undergraduate, IT, college, SUNY, State University of New York, information technology, 413, internet programmin, html5, css, javascript, jquery, adobe flash, RIA."/>
+        
+        <link rel="icon" href="../../images/programming.ico">
+        
+        <title>Assignment 3 Code</title>
+        
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="../../css/sticky-footer-navbar.css" rel="stylesheet">
+        
+    </head>
+    
+    <style>
+        #profile
+        {
+            float: left;
+            padding: 10px;
+            width: 10%;
+            height: 10%;
+        }
+    </style>
+
+    <body>
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Hello World!</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li class="active"><a href="../index.html">Visual Basic</a></li>
+                        <li><a href="../../413/index.html">HTML | CSS | JavaScript</a></li>
+                        <li><a href="../../475/index.php">PHP</a></li>
+                        <li><a href="../../index.html">C#</a></li>
+                        <li><a href="../../resume/index.html">R&eacute;sum&eacute;</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assignments <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                            
+                                <li class="dropdown-header">CIS 400</li>
+                                <li><a href="../Assignment01/index.html">Assignment #1</a></li>
+                                <li><a href="../Assignment02/index.html">Assignment #2</a></li>
+                                <li class="active"><a>Assignment #3</a></li>
+                                <li><a href="../Assignment04/index.html">Assignment #4</a></li>
+                                <li><a href="../Assignment05/index.html">Assignment #5</a></li>
+                                <li><a href="../Assignment06/index.html">Assignment #6</a></li>
+                                <li><a href="../Assignment07/index.html">Assignment #7</a></li>
+                                <li><a href="../Assignment08/index.html">Assignment #8</a></li>
+                                <li><a href="../Assignment09/index.html">Assignment #9</a></li>
+                                <li class="divider"></li>
+                                
+                                <li class="dropdown-header">CIS 413</li>
+                                <li><a href="../../413/hw1/index.html">Homework #1</a></li>
+                                <li><a href="../../413/hw2/index.html">Homework #2</a></li>
+                                <li><a href="../../413/hw3/index.html">Homework #3</a></li>
+                                <li class="divider"></li>
+                                
+                                <li class="dropdown-header">CIS 475</li>
+                                <li><a href="../../475/class1/index.php">In Class #1</a></li>
+                                <li><a href="../../475/class2/index.php">In Class #2</a></li>
+                                <li><a href="../../475/class3/index.php">In Class #3</a></li>
+                                <li><a href="../../475/shapes/index.php">Homework #1</a></li>
+                                <li><a href="../../475/valid/index.php">Homework #2</a></li>
+                                <li><a href="../../475/project1/login.php">Final Project (Part 1)</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1>Assignment 3 <small>Description and Code</small></h1>
+            </div>
+            <p class="lead">Write a Visual Basic program that accepts as input an academic rank and degree(s) and uses a Sub/Function to calculate the appropriate salary.
+            <ul>
+                <li>Display this salary in a label that looks like a textbox and formatted appropriately.</li>
+                <li>Since there are no command buttons or ControlBoxes, users will find the Exit option and an additional one in the File drop-down menu.</li>
+                <li>Use initials in the form title bar.</li>
+                <li>Since a bachelor's degree is the minimum degree requirement, clicking it's checkbox will not remove the check.</li>
+                <li>Include both Option Explicit and Option Strict.</li>
+            </ul>
+            </p>
+            <br>
+                
+            <p>Below is the code used to create the program:</p>
+            <pre>
+Option Explicit On
+Option Strict On
+
+
+Public Class frmMain
+    Dim salary, total, masBonus, docBonus As Double
+    Dim multiplier As Decimal
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        MessageBox.Show("This program was written by Raul G. Matos", "Author")
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmdLec_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLec.CheckedChanged
+        salary = 50000
+        multiplier = 1
+
+        If (chkMas.Checked) Then
+            masBonus = 3000 * multiplier
+        End If
+
+        If (chkDoc.Checked) Then
+            docBonus = 8000 * multiplier
+        End If
+
+        total = (salary * multiplier) + masBonus + docBonus
+        lblSalary.Text = FormatCurrency(CStr(total))
+    End Sub
+
+    Private Sub cmdIns_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdIns.CheckedChanged
+        multiplier = CDec(1.2)
+
+        If (chkMas.Checked) Then
+            masBonus = 3000 * multiplier
+        End If
+
+        If (chkDoc.Checked) Then
+            docBonus = 8000 * multiplier
+        End If
+
+        total = (salary * multiplier) + masBonus + docBonus
+        lblSalary.Text = FormatCurrency(CStr(total))
+    End Sub
+
+    Private Sub cmdAstPro_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAstPro.CheckedChanged
+        multiplier = CDec(1.4)
+
+        If (chkMas.Checked) Then
+            masBonus = 3000 * multiplier
+        End If
+
+        If (chkDoc.Checked) Then
+            docBonus = 8000 * multiplier
+        End If
+
+        total = (salary * multiplier) + masBonus + docBonus
+        lblSalary.Text = FormatCurrency(CStr(total))
+    End Sub
+
+    Private Sub cmdAsoPro_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAsoPro.CheckedChanged
+        multiplier = CDec(1.6)
+
+        If (chkMas.Checked) Then
+            masBonus = 3000 * multiplier
+        End If
+
+        If (chkDoc.Checked) Then
+            docBonus = 8000 * multiplier
+        End If
+
+        total = (salary * multiplier) + masBonus + docBonus
+        lblSalary.Text = FormatCurrency(CStr(total))
+    End Sub
+
+    Private Sub cmdPro_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPro.CheckedChanged
+        multiplier = 2
+
+        If (chkMas.Checked) Then
+            masBonus = 3000 * multiplier
+        End If
+
+        If (chkDoc.Checked) Then
+            docBonus = 8000 * multiplier
+        End If
+
+        total = (salary * multiplier) + masBonus + docBonus
+        lblSalary.Text = FormatCurrency(CStr(total))
+    End Sub
+
+    Private Sub chkBac_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkBac.CheckedChanged
+        If (chkBac.Checked And Not chkMas.Checked And Not chkDoc.Checked) Then
+            masBonus = 0
+            docBonus = 0
+        End If
+    End Sub
+
+    Private Sub chkMas_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkMas.CheckedChanged
+        If (chkMas.Checked) Then
+            masBonus = 3000 * multiplier
+            total = total + masBonus
+            lblSalary.Text = FormatCurrency(total)
+        Else
+            total = total - masBonus
+            masBonus = 0
+            lblSalary.Text = FormatCurrency(total)
+        End If
+    End Sub
+
+    Private Sub chkDoc_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkDoc.CheckedChanged
+        If (chkDoc.Checked) Then
+            docBonus = 8000 * multiplier
+            total = total + docBonus
+            lblSalary.Text = FormatCurrency(total)
+        Else
+            total = total - docBonus
+            docBonus = 0
+            lblSalary.Text = FormatCurrency(total)
+        End If
+    End Sub
+
+End Class
+            </pre>
+        </div>
+        
+        <footer class="footer">
+            <div class="container">
+                <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">
+                <img src="../../images/profile.JPG" id="profile">
+                </a>
+                <p class="text-muted"><strong>Raul G. Matos | <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">View my LinkedIn profile</a> | <a href="https://github.com/RaulGMatos">View my GitHub profile</a></strong><br>
+                    <i><small>Department of Computer Information Systems Graduate</small></i><br>
+                    <i><small>Buffalo State College</small></i><br>
+                    <i><small>1300 Elmwood Avenue</small></i><br>
+                    <i><small>Buffalo, New York 14222</small></i>
+                </p>
+            </div>
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        
+    </body>
+
+</html>

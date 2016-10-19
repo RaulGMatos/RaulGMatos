@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+        <meta name="description" content="The Department of Computer Information Systems at Buffalo State College provides a four year undergraduate degree program in information technology, systems administration, network administration, internet programming, databse programming, and project management."/>
+        
+        <meta name="keywords" content="buffalo state college, computer information systems, cis, buffalo, undergraduate, IT, college, SUNY, State University of New York, information technology, 413, internet programmin, html5, css, javascript, jquery, adobe flash, RIA."/>
+        
+        <link rel="icon" href="../../images/programming.ico">
+        
+        <title>Assignment 2 Code</title>
+        
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="../../css/sticky-footer-navbar.css" rel="stylesheet">
+        
+    </head>
+    
+    <style>
+        #profile
+        {
+            float: left;
+            padding: 10px;
+            width: 10%;
+            height: 10%;
+        }
+    </style>
+
+    <body>
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Hello World!</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li class="active"><a href="../index.html">Visual Basic</a></li>
+                        <li><a href="../../413/index.html">HTML | CSS | JavaScript</a></li>
+                        <li><a href="../../475/index.php">PHP</a></li>
+                        <li><a href="../../index.html">C#</a></li>
+                        <li><a href="../../resume/index.html">R&eacute;sum&eacute;</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assignments <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                            
+                                <li class="dropdown-header">CIS 400</li>
+                                <li><a href="../Assignment01/index.html">Assignment #1</a></li>
+                                <li class="active"><a>Assignment #2</a></li>
+                                <li><a href="../Assignment03/index.html">Assignment #3</a></li>
+                                <li><a href="../Assignment04/index.html">Assignment #4</a></li>
+                                <li><a href="../Assignment05/index.html">Assignment #5</a></li>
+                                <li><a href="../Assignment06/index.html">Assignment #6</a></li>
+                                <li><a href="../Assignment07/index.html">Assignment #7</a></li>
+                                <li><a href="../Assignment08/index.html">Assignment #8</a></li>
+                                <li><a href="../Assignment09/index.html">Assignment #9</a></li>
+                                <li class="divider"></li>
+                                
+                                <li class="dropdown-header">CIS 413</li>
+                                <li><a href="../../413/hw1/index.html">Homework #1</a></li>
+                                <li><a href="../../413/hw2/index.html">Homework #2</a></li>
+                                <li><a href="../../413/hw3/index.html">Homework #3</a></li>
+                                <li class="divider"></li>
+                                
+                                <li class="dropdown-header">CIS 475</li>
+                                <li><a href="../../475/class1/index.php">In Class #1</a></li>
+                                <li><a href="../../475/class2/index.php">In Class #2</a></li>
+                                <li><a href="../../475/class3/index.php">In Class #3</a></li>
+                                <li><a href="../../475/shapes/index.php">Homework #1</a></li>
+                                <li><a href="../../475/valid/index.php">Homework #2</a></li>
+                                <li><a href="../../475/project1/login.php">Final Project (Part 1)</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1>Assignment 2 <small>Description and Code</small></h1>
+            </div>
+            <p class="lead">Write a Visual Basic program that accepts as input the air temperature and the wind velocity. It will use two formulas to calculate the old and new Windchill factors and the change from the old to new.
+            <ul>
+                <li>To accommodate both tables, use the original Windchill table parameters.</li>
+                <li>Place initials in the form's title bar.</li>
+                <li>Do not use any variables, only use object properties.</li>
+                <li>Do not use any TextBoxes, only use labels that look like TextBoxes.</li>
+                <li>When executed, the Windchill form appears in the center of the screen, and the form cannot be resized.</li>
+                <li>The form will not display the usual Minimize, Maximize, and Close buttons so that users must use the Exit button.</li>
+            </ul>
+            </p>
+            <br>
+                
+            <p>Below is the code used to create the program:</p>
+            <pre>
+Public Class frmMain
+
+    Private Sub cmdInformation_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdInformation.Click
+        MessageBox.Show("NOTE: Wind speeds below 5 mph or above 40 mph will have little effect on the Wind-chill factor." & Chr(13) & Chr(13) & "RGM", _
+                        "Wind Chill Calculation")
+    End Sub
+
+    Private Sub cmdExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExit.Click
+        Me.Close()
+    End Sub
+
+    Private Sub vsbWindSpeed_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles vsbWindSpeed.ValueChanged
+        lblWindSpeedMPH.Text = vsbWindSpeed.Value
+        lblOldWindChillF.Text = CInt(91.4 - (0.474677 - 0.020425 * vsbWindSpeed.Value + 0.303107 * Math.Sqrt(vsbWindSpeed.Value)) _
+                                           * (91.4 - (vsbTemperature.Value * -1)))
+        lblNewWindChillF.Text = CInt(35.74 + (0.6215 * (vsbTemperature.Value * -1)) - 35.75 * (Math.Pow(vsbWindSpeed.Value, 0.16)) _
+                                           + (0.4275 * (vsbTemperature.Value * -1)) * (Math.Pow(vsbWindSpeed.Value, 0.16)))
+        lblChangeWindChillF.Text = lblNewWindChillF.Text - lblOldWindChillF.Text
+    End Sub
+
+    Private Sub vsbTemperature_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles vsbTemperature.ValueChanged
+        lblTempF.Text = vsbTemperature.Value * -1
+        lblOldWindChillF.Text = CInt(91.4 - (0.474677 - 0.020425 * vsbWindSpeed.Value + 0.303107 * Math.Sqrt(vsbWindSpeed.Value)) _
+                                           * (91.4 - (vsbTemperature.Value * -1)))
+        lblNewWindChillF.Text = CInt(35.74 + (0.6215 * (vsbTemperature.Value * -1)) - 35.75 * (Math.Pow(vsbWindSpeed.Value, 0.16)) _
+                                           + (0.4275 * (vsbTemperature.Value * -1)) * (Math.Pow(vsbWindSpeed.Value, 0.16)))
+        lblChangeWindChillF.Text = lblNewWindChillF.Text - lblOldWindChillF.Text
+    End Sub
+End Class
+            </pre>
+        </div>
+        
+        <footer class="footer">
+            <div class="container">
+                <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">
+                <img src="../../images/profile.JPG" id="profile">
+                </a>
+                <p class="text-muted"><strong>Raul G. Matos | <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">View my LinkedIn profile</a> | <a href="https://github.com/RaulGMatos">View my GitHub profile</a></strong><br>
+                    <i><small>Department of Computer Information Systems Graduate</small></i><br>
+                    <i><small>Buffalo State College</small></i><br>
+                    <i><small>1300 Elmwood Avenue</small></i><br>
+                    <i><small>Buffalo, New York 14222</small></i>
+                </p>
+            </div>
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        
+    </body>
+
+</html>
