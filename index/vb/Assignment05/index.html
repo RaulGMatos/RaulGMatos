@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+        <meta name="description" content="The Department of Computer Information Systems at Buffalo State College provides a four year undergraduate degree program in information technology, systems administration, network administration, internet programming, databse programming, and project management."/>
+        
+        <meta name="keywords" content="buffalo state college, computer information systems, cis, buffalo, undergraduate, IT, college, SUNY, State University of New York, information technology, 413, internet programmin, html5, css, javascript, jquery, adobe flash, RIA."/>
+        
+        <link rel="icon" href="../../images/programming.ico">
+        
+        <title>Assignment 5 Code</title>
+        
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="../../css/sticky-footer-navbar.css" rel="stylesheet">
+        
+    </head>
+    
+    <style>
+        #profile
+        {
+            float: left;
+            padding: 10px;
+            width: 10%;
+            height: 10%;
+        }
+    </style>
+
+    <body>
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Hello World!</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li class="active"><a href="../index.html">Visual Basic</a></li>
+                        <li><a href="../../413/index.html">HTML | CSS | JavaScript</a></li>
+                        <li><a href="../../475/index.php">PHP</a></li>
+                        <li><a href="../../index.html">C#</a></li>
+                        <li><a href="../../resume/index.html">R&eacute;sum&eacute;</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assignments <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                            
+                                <li class="dropdown-header">CIS 400</li>
+                                <li><a href="../Assignment01/index.html">Assignment #1</a></li>
+                                <li><a href="../Assignment02/index.html">Assignment #2</a></li>
+                                <li><a href="../Assignment03/index.html">Assignment #3</a></li>
+                                <li><a href="../Assignment04/index.html">Assignment #4</a></li>
+                                <li class="active"><a>Assignment #5</a></li>
+                                <li><a href="../Assignment06/index.html">Assignment #6</a></li>
+                                <li><a href="../Assignment07/index.html">Assignment #7</a></li>
+                                <li><a href="../Assignment08/index.html">Assignment #8</a></li>
+                                <li><a href="../Assignment09/index.html">Assignment #9</a></li>
+                                <li class="divider"></li>
+                                
+                                <li class="dropdown-header">CIS 413</li>
+                                <li><a href="../../413/hw1/index.html">Homework #1</a></li>
+                                <li><a href="../../413/hw2/index.html">Homework #2</a></li>
+                                <li><a href="../../413/hw3/index.html">Homework #3</a></li>
+                                <li class="divider"></li>
+                                
+                                <li class="dropdown-header">CIS 475</li>
+                                <li><a href="../../475/class1/index.php">In Class #1</a></li>
+                                <li><a href="../../475/class2/index.php">In Class #2</a></li>
+                                <li><a href="../../475/class3/index.php">In Class #3</a></li>
+                                <li><a href="../../475/shapes/index.php">Homework #1</a></li>
+                                <li><a href="../../475/valid/index.php">Homework #2</a></li>
+                                <li><a href="../../475/project1/login.php">Final Project (Part 1)</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Begin page content -->
+        <div class="container">
+            <div class="page-header">
+                <h1>Assignment 5 <small>Description and Code</small></h1>
+            </div>
+            <p class="lead">Modify Assignment #4's Visual Basic program that calculates a weighted average and determines the appropriate letter grade based on a grading scale provided.
+            <ul>
+                <li>Instead of using the form load event handler and hard-coding the data source file to be named grades.csv and in the same directory as your .exe, are move the code to a MenuStrip click event handler and modify the code to use an OpenFileDialog box that begins at the hard drive root level (C:) with no file name suggested and lets the user select the location and name of the file to be opened. (Use grades.csv from the previous assignment to test your program.)</li>
+                <li>Instead of writing the file to the same directory with the name report.txt, use a SaveFileDialog that begins at the hard drive root level (C:) with the file name report.txt suggested and lets the user select the location and determine the name of the file to be saved.</li>
+                <li>No command buttons or ControlBoxes, users will find the Exit option in the File drop-down menu.</li>
+                <li>For the input file, apply a filter that only displays .csv files.</li>
+                <li>For the output file, apply a filter that suggests that files should be saved as .txt files.</li>
+                <li>Assume that a user will open a .csv file with the proper "record structure" so there is no use of validity checking.</li>
+            </ul>
+            </p>
+            <br>
+                
+            <p>Below is the code used to create the program:</p>
+            <pre>
+Option Explicit On
+Option Strict On
+Imports System.IO
+
+
+Public Class frmMain
+
+    Dim strFirstName(24) As String  'Used for storing all first names
+    Dim strLastName(24) As String   'Used for storing all last names
+    Dim intHomeWork1(24) As Integer 'Used for storing Homework Assignment 1 grades
+    Dim intHomeWork2(24) As Integer 'Used for storing Homework Assignment 2 grades
+    Dim intProject(24) As Integer   'Used for storing Project grades
+    Dim intMidTerm(24) As Integer   'Used for storing MidTerm grades
+    Dim intFinal(24) As Integer     'Used for storing Final grades
+    Dim dblAverage(24) As Double    'Used for storing the average for a student
+    Dim strGrade(24) As String      'Used for storing the letter grade for a student
+    Dim dblClassAverage As Double   'Used for storing the class average
+    Dim intStudents As Integer      'Used for storing the number of students, to be used in the loops
+
+    Private Sub OpenFileToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenFileToolStripMenuItem.Click
+
+        Dim rdrInFile As StreamReader
+
+        dbxOpenFile.InitialDirectory = "C:\"
+        dbxOpenFile.Filter = "Comma Seperated Value Files (*.csv)|*.csv"
+
+        If (dbxOpenFile.ShowDialog() = DialogResult.Cancel) Then
+            MsgBox("No file opened!", MsgBoxStyle.Exclamation, "Operation Cancelled")
+            Exit Sub
+        Else
+            rdrInFile = File.OpenText(dbxOpenFile.FileName)
+
+            dblClassAverage = 0
+            intStudents = 0
+
+            Dim strFile As String
+            Dim strFileArray(6) As String
+
+            ' ======================================================================================================================================================================
+            ' The Do While loop below is used for repeating the action of reading each line of the .csv file and storing that information into the corresponding array. It also
+            ' increases the variable intStudents to keep track of the number of times the loop is executed in order to output the proper number of lines to a file in a later loop.
+            ' ======================================================================================================================================================================
+
+            Do While (rdrInFile.Peek <> -1)
+                strFile = rdrInFile.ReadLine
+                strFileArray = Split(strFile, ",")
+                strFirstName(intStudents) = strFileArray(0)
+                strLastName(intStudents) = strFileArray(1)
+                intHomeWork1(intStudents) = CInt(strFileArray(2))
+                intHomeWork2(intStudents) = CInt(strFileArray(3))
+                intProject(intStudents) = CInt(strFileArray(4))
+                intMidTerm(intStudents) = CInt(strFileArray(5))
+                intFinal(intStudents) = CInt(strFileArray(6))
+                lstNames.Items.Add(strLastName(intStudents) & ", " & strFirstName(intStudents))
+                dblAverage(intStudents) = CDbl(Math.Round(Math.Truncate(((((intHomeWork1(intStudents) + intHomeWork2(intStudents)) + _
+                                                                           (2 * intProject(intStudents)) + (4 * (intMidTerm(intStudents) + intFinal(intStudents)))) / 12) + 0.5))))
+                dblClassAverage = dblClassAverage + dblAverage(intStudents)
+
+                Dim intTester As Integer
+                intTester = CInt(dblAverage(intStudents))
+
+                ' The Select Case statement below is used for determining which letter grade is to be displayed for the student information be gathered currently in the loop.
+
+                Select Case (intTester)
+                    Case 93 To 100
+                        strGrade(intStudents) = "A"
+                    Case 90 To 92
+                        strGrade(intStudents) = "A-"
+                    Case 87 To 89
+                        strGrade(intStudents) = "B+"
+                    Case 83 To 86
+                        strGrade(intStudents) = "B"
+                    Case 80 To 82
+                        strGrade(intStudents) = "B-"
+                    Case 77 To 79
+                        strGrade(intStudents) = "C+"
+                    Case 73 To 76
+                        strGrade(intStudents) = "C"
+                    Case 70 To 72
+                        strGrade(intStudents) = "C-"
+                    Case 67 To 69
+                        strGrade(intStudents) = "D+"
+                    Case 63 To 66
+                        strGrade(intStudents) = "D"
+                    Case 60 To 62
+                        strGrade(intStudents) = "D-"
+                    Case Else
+                        strGrade(intStudents) = "E"
+                End Select
+
+                intStudents = intStudents + 1
+            Loop
+
+            lstNames.SelectedIndex = 0
+            dblClassAverage = dblClassAverage / intStudents
+            rdrInFile.Close()
+        End If
+    End Sub
+
+    Private Sub SummaryReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SummaryReportToolStripMenuItem.Click
+
+        If (lstNames.Items.Count = 0) Then
+            MsgBox("No data to create Summary Report! Please open a file of type .csv and try again.", MsgBoxStyle.Critical, "Empty List Error!")
+        Else
+            If (sbxSaveFile.ShowDialog = DialogResult.Cancel) Then
+                MsgBox("No Summary Report has been created!", MsgBoxStyle.Exclamation, "Operation Cancelled")
+                Exit Sub
+            Else
+
+                Dim wtrOutFile As StreamWriter
+                wtrOutFile = File.CreateText(sbxSaveFile.FileName)
+
+                Dim intCounter As Integer
+                intCounter = 0
+
+                ' These statements will write or output the date and class average to the Report.txt file
+
+                wtrOutFile.WriteLine("Summary Report Created:  " & DateTime.Now.ToLongDateString)
+                wtrOutFile.WriteLine()
+                wtrOutFile.WriteLine("Class Average:  " & Math.Round(Math.Truncate(dblClassAverage)))
+                wtrOutFile.WriteLine()
+                wtrOutFile.WriteLine()
+
+                ' ======================================================================================================================================================================
+                ' The Do Until loop below is used for repeating the action of writing or outputting all the student's info gathered in the previous Do While loop into the file named 
+                ' Report.txt. It will write all of a student's info on one line including the now calculated average and letter grade and move to the next line repeating this until
+                ' there is no more student info to write. The variables intCounter and intStudents keep track of the number of times this loop will execute.
+                ' ======================================================================================================================================================================
+
+                Do Until (intStudents = 0)
+                    wtrOutFile.WriteLine(strFirstName(intCounter) & " " & strLastName(intCounter) & " " & intHomeWork1(intCounter) & " " & _
+                                     intHomeWork2(intCounter) & " " & intProject(intCounter) & " " & intMidTerm(intCounter) & " " & _
+                                     intFinal(intCounter) & " " & "------>" & " " & dblAverage(intCounter) & " " & strGrade(intCounter))
+                    intCounter = intCounter + 1
+                    intStudents = intStudents - 1
+                Loop
+
+                MsgBox("Summary Report has been created.", MsgBoxStyle.Information, "Operation Completed") ' This Message Box lets the user know the file has been created
+
+                wtrOutFile.Close()
+
+            End If
+        End If
+
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+
+        Dim result As Integer
+
+        ' The message box and If statement below confirm the user would like to quit and does so or not depending on their choice
+
+        result = MsgBox("Are you sure you want to exit?", CType(MsgBoxStyle.YesNo + MsgBoxStyle.Question, MsgBoxStyle), "Close Program?")
+
+        If (result = vbYes) Then
+            Me.Close()
+        End If
+
+    End Sub
+
+    Private Sub lstNames_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstNames.SelectedIndexChanged
+
+        ' The statements below display the appropriate information in the appropriate labels when the user selects a student name from the listbox
+
+        lblHmwk1.Text = CStr(intHomeWork1(lstNames.SelectedIndex))
+        lblHmwk2.Text = CStr(intHomeWork2(lstNames.SelectedIndex))
+        lblPro.Text = CStr(intProject(lstNames.SelectedIndex))
+        lblMid.Text = CStr(intMidTerm(lstNames.SelectedIndex))
+        lblFinal.Text = CStr(intFinal(lstNames.SelectedIndex))
+        lblAvg.Text = CStr(dblAverage(lstNames.SelectedIndex))
+        lblGrade.Text = CStr(strGrade(lstNames.SelectedIndex))
+
+    End Sub
+
+End Class
+            </pre>
+        </div>
+        
+        <footer class="footer">
+            <div class="container">
+                <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">
+                <img src="../../images/profile.JPG" id="profile">
+                </a>
+                <p class="text-muted"><strong>Raul G. Matos | <a href="https://www.linkedin.com/pub/raul-matos/116/831/538">View my LinkedIn profile</a> | <a href="https://github.com/RaulGMatos">View my GitHub profile</a></strong><br>
+                    <i><small>Department of Computer Information Systems Graduate</small></i><br>
+                    <i><small>Buffalo State College</small></i><br>
+                    <i><small>1300 Elmwood Avenue</small></i><br>
+                    <i><small>Buffalo, New York 14222</small></i>
+                </p>
+            </div>
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        
+    </body>
+
+</html>

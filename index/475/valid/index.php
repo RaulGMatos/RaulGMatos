@@ -188,6 +188,7 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="../../index.html">Home</a></li>
+			<li><a href="../../vb/index.html">Visual Basic</a></li>
                         <li><a href="../../413/index.html">HTML | CSS | JavaScript</a></li>
                         <li class="active"><a href="../index.php">PHP</a></li>
 			<li><a href="../../sharp/index.html">C#</a></li>
@@ -195,6 +196,18 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assignments <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
+				
+				<li class="dropdown-header">CIS 400</li>
+                                <li><a href="../../vb/Assignment01/index.html">Assignment #1</a></li>
+                                <li><a href="../../vb/Assignment02/index.html">Assignment #2</a></li>
+                                <li><a href="../../vb/Assignment03/index.html">Assignment #3</a></li>
+                                <li><a href="../../vb/Assignment04/index.html">Assignment #4</a></li>
+                                <li><a href="../../vb/Assignment05/index.html">Assignment #5</a></li>
+                                <li><a href="../../vb/Assignment06/index.html">Assignment #6</a></li>
+                                <li><a href="../../vb/Assignment07/index.html">Assignment #7</a></li>
+                                <li><a href="../../vb/Assignment08/index.html">Assignment #8</a></li>
+                                <li><a href="../../vb/Assignment09/index.html">Assignment #9</a></li>
+                                <li class="divider"></li>
                             
                                 <li class="dropdown-header">CIS 413</li>
                                 <li><a href="../../413/hw1/index.html">Homework #1</a></li>
