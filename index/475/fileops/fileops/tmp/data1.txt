@@ -1,8 +1,0 @@
-2012-10-04 hello worldEOR
-2012-10-04 test2 in classEOR
-2012-10-04 Valid data from homeEOR
-2013-10-02 hello worldEOR
-2013-10-02 hello againEOR
-2013-10-03 test testEOR
-2013-10-20 tw0 fourEOR
-
